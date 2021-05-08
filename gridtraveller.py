@@ -12,7 +12,7 @@ def gridtraveller(m,n, memo = {}):
     key2 = str(n) + ',' + str(m)
     if key in memo:
         return memo[key]
-    elif temp2 in memo:
+    elif key2 in memo:
         return memo[key2]
     
     #store in the dictionary
