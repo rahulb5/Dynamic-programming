@@ -21,6 +21,6 @@ def gridtraveller(m,n, memo = {}):
 
 
 
-print(gridtraveller(2,3))
-print(gridtraveller(9,9))
-print(gridtraveller(18,18))
+print(gridtraveller(2,3))#3
+print(gridtraveller(9,9))#12870
+print(gridtraveller(18,18))#2333606220
