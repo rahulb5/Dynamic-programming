@@ -8,16 +8,16 @@ def gridtraveller(m,n, memo = {}):
     elif m == 1 and n == 1:
         return 1
     #checking if the node is already evaluated and the value for m,n == n,m
-    temp = str(m) + ',' + str(n)
-    temp2 = str(n) + ',' + str(m)
-    if temp in memo:
-        return memo[temp]
+    key = str(m) + ',' + str(n)
+    key2 = str(n) + ',' + str(m)
+    if key in memo:
+        return memo[key]
     elif temp2 in memo:
-        return memo[temp2]
+        return memo[key2]
     
     #store in the dictionary
-    memo[temp] = gridtraveller(m - 1, n, memo) + gridtraveller(m, n-1, memo)
-    return memo[temp]
+    memo[key] = gridtraveller(m - 1, n, memo) + gridtraveller(m, n-1, memo)
+    return memo[key]
 
 
 
