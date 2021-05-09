@@ -2,25 +2,27 @@
 #the list of numbers and returns an array containing any compbination of elements adding up exactly to 
 #targetSum. If there are multiple solutions, return any one
 #you can use numbers as many times as you need and the unmbers are non negative
-
-def howSum(targetSum, numbers, answer = [], memo = {}):
+def howSum(targetSum, numbers, memo = None):
+    if memo is None:
+        memo = {}
     if targetSum in memo:
         return memo[targetSum]
     if targetSum == 0:
         return []
-    if targetSum < min(numbers):
+    if targetSum < 0:
         return None
     
     for i in numbers:
         remainder = targetSum - i
-        temp = howSum(remainder, numbers, answer)
+        temp = howSum(remainder, numbers, memo)
         if temp != None:
-            answer.append(i)
-            memo[i] = answer
-            return memo[i]
+            temp = temp.copy()
+            temp.append(i)
+            memo[targetSum] = temp
+            return memo[targetSum]
         
     memo[targetSum] = None
-    return memo[targetSum]
+    return None
 
 a = [7,14]
 
